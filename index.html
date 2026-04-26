@@ -94,10 +94,8 @@
     }
 
     .timeline div {
-      background: #ffffff;
       padding: 15px 25px;
       border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       font-weight: 300;
       font-size: 1.35rem;
     }
@@ -239,6 +237,56 @@
     .value {
       font-weight: 600
     }
+
+    .timeline-item {
+
+  padding: 15px 5px;
+  border-radius: 12px;
+  font-weight: 300;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+/* 👇 SMALLER, CLEANER IMAGES */
+.timeline-item img {
+  width: 100%;
+  max-width: 180px;   /* ⬅️ key change (smaller size) */
+  height: 140px;      /* fixed height for consistency */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ✅ FIX: Schedule section visibility on mobile */
+.section-schedule {
+  height: auto;          /* override 100vh behavior */
+  min-height: 100vh;     /* still fills screen if content is small */
+  padding: 80px 20px;    /* more breathing space */
+}
+
+/* Make timeline more comfortable on small screens */
+.timeline {
+  gap: 25px; /* more spacing between items */
+}
+
+/* Slight improvement for iPhone screens */
+@media (max-width: 768px) {
+  .section-schedule {
+    padding: 100px 20px; /* extra top/bottom space for scroll comfort */
+  }
+
+  .timeline-item img {
+    max-width: 260px; /* a bit larger for visibility */
+    height: 160px;
+  }
+
+  .timeline-item {
+    font-size: 1.15rem; /* slightly tighter text for balance */
+  }
+}
   </style>
 </head>
 <body>
@@ -275,17 +323,35 @@
     </div>
   </section>
 
-  <section class="section-light section-schedule fade-in">
-    <div class="details">
-      <h2>Schedule</h2>
-      <div class="timeline">
+<section class="section-light section-schedule fade-in">
+  <div class="details">
+    <h2>Schedule</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
         <div>16:00 - Photos & Drinks</div>
-        <div>17:00 - Dinner</div>
-        <div>19:00 - Party & Dancing</div>
-        <div>22:00 - Fin</div>
+        <img src="./assets//cocktails.jpg" alt="Photos & Drinks">
       </div>
+
+      <div class="timeline-item">
+        <div>17:00 - Dinner</div>
+        <img src="./assets//fork_and_knife-upd.jpg" alt="Dinner">
+      </div>
+
+      <div class="timeline-item">
+        <div>19:00 - Party & Dancing</div>
+        <img src="./assets/dance.jpg" alt="Party & Dancing">
+      </div>
+
+      <div class="timeline-item">
+        <div>22:00 - Fin</div>
+        <img src="./assets/bride_and_bride.jpg" alt="End">
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="section-light section-love fade-in">
     <div class="details">
