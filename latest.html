@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation</title>
+
+  <!-- Elegant but not overly decorative fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { font-size: 120%; }
+
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      color: #4a4a4a;
+      background: #fdfaf6;
+      overflow-x: hidden;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+                  url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486') center/cover no-repeat;
+    }
+
+    .hero h1 {
+      color: #7a8c66;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+    font-size: 1.2rem;
+    color: #6c7a5e;
+    font-weight: 400;
+    }
+
+    .section-light {
+      background: #f3f7f2;
+    }
+
+    .section-accent {
+      background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+                  url('./assets//not_only_wine.jpg') center/cover no-repeat;
+    }
+
+    .details {
+      max-width: 600px;
+    }
+
+    .details h2 {
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+      color: #7a8c66;
+    }
+
+    .details p {
+      line-height: 1.7;
+      margin-bottom: 10px;
+      font-weight: 300;
+      font-size: 1.05rem;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .timeline div {
+      background: #ffffff;
+      padding: 15px 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      font-weight: 300;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      background: #a8bfa0;
+      color: white;
+      cursor: pointer;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #8ea782;
+      transform: translateY(-2px);
+    }
+
+    .floating {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: rgba(168,191,160,0.2);
+      border-radius: 50%;
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .floating:nth-child(1) { top: 10%; left: 20%; }
+    .floating:nth-child(2) { bottom: 15%; right: 25%; animation-duration: 12s; }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-30px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @media(max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="floating"></div>
+    <div class="floating"></div>
+    <h1>Alyupik & Vlad</h1>
+    <p>We invite you to celebrate our wedding</p>
+    <p>June 2nd, 2026</p>
+    <button onclick="scrollToSection('details')">Discover More</button>
+  </section>
+
+  <section id="details" class="section-light">
+    <div class="details">
+      <h2>Join Us</h2>
+      <p>Come celebrate love, laughter, and the beginning of our life together.</p>
+      <p>We can’t wait to share this unforgettable day with you.</p>
+    </div>
+  </section>
+
+  <section class="section-accent">
+    <div class="details">
+      <h2>Wedding Details</h2>
+      <p><strong>Location :</strong> Not Only Wine</p>
+      <p><strong>Date :</strong> the 2nd of June, 2026</p>
+      <p><strong>Time :</strong> 16:00</p>
+    </div>
+  </section>
+
+  <section class="section-light">
+    <div class="details">
+      <h2>Schedule</h2>
+      <div class="timeline">
+        <div>16:00 - Photos & Drinks</div>
+        <div>17:00 - Dinner</div>
+        <div>19:00 - Party & Dancing</div>
+        <div>22:00 - Fin</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light">
+    <div class="details">
+      <h2>With Love</h2>
+      <p>There is no formal dress code — come as you feel comfortable and festive.</p>
+      <p>Your presence is the greatest gift to us, but if you wish to bring something, we will gladly welcome flowers, a bottle of your favorite drink, or any small surprise.</p>
+    </div>
+  </section>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(sec => {
+      sec.style.opacity = 0;
+      sec.style.transform = 'translateY(40px)';
+      sec.style.transition = 'all 1s ease';
+      observer.observe(sec);
+    });
+  </script>
+
+</body>
+</html>
