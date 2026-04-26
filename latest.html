@@ -42,7 +42,6 @@
       text-align: center;
       padding: 20px;
       position: relative;
-      overflow: hidden;
     }
 
     .hero {
@@ -50,15 +49,21 @@
                   url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486') center/cover no-repeat;
     }
 
-    .hero h1 { color: #7a8c66; margin-bottom: 10px; }
+    .hero h1 {
+      color: #7a8c66;
+      margin-bottom: 10px;
+    }
 
     .hero p {
       font-size: 1.2rem;
       color: #6c7a5e;
       font-weight: 400;
+      margin: 10px;
     }
 
-    .section-light { background: #f3f7f2; }
+    .section-light {
+      background: #f3f7f2;
+    }
 
     .section-accent {
       background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
@@ -67,8 +72,6 @@
 
     .details {
       max-width: 600px;
-      z-index: 2;
-      position: relative;
     }
 
     .details h2 {
@@ -81,7 +84,7 @@
       line-height: 1.7;
       margin-bottom: 10px;
       font-weight: 300;
-      font-size: 1.05rem;
+      font-size: 1.35rem;
     }
 
     .timeline {
@@ -91,11 +94,10 @@
     }
 
     .timeline div {
-      background: #ffffff;
       padding: 15px 25px;
       border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       font-weight: 300;
+      font-size: 1.35rem;
     }
 
     button {
@@ -111,11 +113,13 @@
       transition: 0.3s;
     }
 
-    button:hover { background: #8ea782; transform: translateY(-2px); }
+    button:hover {
+      background: #8ea782;
+      transform: translateY(-2px);
+    }
 
     .music-btn {
       position: fixed;
-      top: 20px;
       right: 20px;
       width: 50px;
       height: 50px;
@@ -129,29 +133,35 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      transition: 0.3s;
       z-index: 999;
     }
 
     .music-btn:hover { transform: scale(1.1); }
 
-    /* ===== EUCALYPTUS FRAME ===== */
-    .eucalyptus {
+    .floating {
       position: absolute;
-      width: 180px;
-      opacity: 0.55;
-      pointer-events: none;
-      z-index: 1;
+      width: 60px;
+      height: 60px;
+      background: rgba(168,191,160,0.2);
+      border-radius: 50%;
+      animation: float 10s infinite ease-in-out;
     }
 
-    .top-left { top: -30px; left: -30px; transform: rotate(10deg); }
-    .top-right { top: -30px; right: -30px; transform: rotate(90deg); }
-    .bottom-left { bottom: -30px; left: -30px; transform: rotate(-90deg); }
-    .bottom-right { bottom: -30px; right: -30px; transform: rotate(180deg); }
+    .floating:nth-child(1) { top: 10%; left: 20%; }
+    .floating:nth-child(2) { bottom: 15%; right: 25%; animation-duration: 12s; }
 
-    /* COUNTDOWN */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-30px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* COUNTDOWN SECTION - REAL FLOWERS (SVG PATTERN) */
     .section-countdown {
-      background-color: #f7faf5;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg fill='%23a8bfa0' fill-opacity='0.25'%3E%3Cpath d='M45 10c5 8 10 8 10 15s-5 7-10 15c-5-8-10-8-10-15s5-7 10-15z'/%3E%3C/g%3E%3C/svg%3E");
+       background-color: #f3f7f2;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none'%3E%3C!-- rose bloom --%3E%3Cellipse cx='80' cy='80' rx='7' ry='7' fill='%23d4a0a0' fill-opacity='0.35'/%3E%3Cellipse cx='80' cy='70' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28'/%3E%3Cellipse cx='88' cy='74' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28' transform='rotate(45 88 74)'/%3E%3Cellipse cx='72' cy='74' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28' transform='rotate(-45 72 74)'/%3E%3Cellipse cx='80' cy='90' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(180 80 90)'/%3E%3Cellipse cx='70' cy='86' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(135 70 86)'/%3E%3Cellipse cx='90' cy='86' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(-135 90 86)'/%3E%3C!-- leaves --%3E%3Cellipse cx='62' cy='94' rx='4' ry='9' fill='%23a8bfa0' fill-opacity='0.3' transform='rotate(-30 62 94)'/%3E%3Cellipse cx='98' cy='94' rx='4' ry='9' fill='%23a8bfa0' fill-opacity='0.3' transform='rotate(30 98 94)'/%3E%3C!-- small corner rose top-left --%3E%3Cellipse cx='20' cy='20' rx='5' ry='5' fill='%23e8c4c4' fill-opacity='0.3'/%3E%3Cellipse cx='20' cy='13' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25'/%3E%3Cellipse cx='26' cy='16' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(45 26 16)'/%3E%3Cellipse cx='14' cy='16' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(-45 14 16)'/%3E%3C!-- small corner rose bottom-right --%3E%3Cellipse cx='140' cy='140' rx='5' ry='5' fill='%23e8c4c4' fill-opacity='0.3'/%3E%3Cellipse cx='140' cy='133' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25'/%3E%3Cellipse cx='146' cy='136' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(45 146 136)'/%3E%3Cellipse cx='134' cy='136' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(-45 134 136)'/%3E%3C!-- tiny dots --%3E%3Ccircle cx='40' cy='110' r='2' fill='%23d4a0a0' fill-opacity='0.2'/%3E%3Ccircle cx='120' cy='50' r='2' fill='%23a8bfa0' fill-opacity='0.2'/%3E%3Ccircle cx='130' cy='120' r='1.5' fill='%23d4a0a0' fill-opacity='0.18'/%3E%3Ccircle cx='30' cy='60' r='1.5' fill='%23a8bfa0' fill-opacity='0.18'/%3E%3C/g%3E%3C/svg%3E");
       background-size: 160px 160px;
     }
 
@@ -168,6 +178,115 @@
       color: #5f6f56;
       letter-spacing: 3px;
     }
+
+    .countdown span {
+      display: inline-block;
+      min-width: 60px;
+    }
+
+    @media(max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+    }
+
+    /* ── JOIN US: soft watercolour roses ── */
+    .section-join {
+      background-color: #f3f7f2;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none'%3E%3C!-- rose bloom --%3E%3Cellipse cx='80' cy='80' rx='7' ry='7' fill='%23d4a0a0' fill-opacity='0.35'/%3E%3Cellipse cx='80' cy='70' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28'/%3E%3Cellipse cx='88' cy='74' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28' transform='rotate(45 88 74)'/%3E%3Cellipse cx='72' cy='74' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28' transform='rotate(-45 72 74)'/%3E%3Cellipse cx='80' cy='90' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(180 80 90)'/%3E%3Cellipse cx='70' cy='86' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(135 70 86)'/%3E%3Cellipse cx='90' cy='86' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(-135 90 86)'/%3E%3C!-- leaves --%3E%3Cellipse cx='62' cy='94' rx='4' ry='9' fill='%23a8bfa0' fill-opacity='0.3' transform='rotate(-30 62 94)'/%3E%3Cellipse cx='98' cy='94' rx='4' ry='9' fill='%23a8bfa0' fill-opacity='0.3' transform='rotate(30 98 94)'/%3E%3C!-- small corner rose top-left --%3E%3Cellipse cx='20' cy='20' rx='5' ry='5' fill='%23e8c4c4' fill-opacity='0.3'/%3E%3Cellipse cx='20' cy='13' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25'/%3E%3Cellipse cx='26' cy='16' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(45 26 16)'/%3E%3Cellipse cx='14' cy='16' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(-45 14 16)'/%3E%3C!-- small corner rose bottom-right --%3E%3Cellipse cx='140' cy='140' rx='5' ry='5' fill='%23e8c4c4' fill-opacity='0.3'/%3E%3Cellipse cx='140' cy='133' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25'/%3E%3Cellipse cx='146' cy='136' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(45 146 136)'/%3E%3Cellipse cx='134' cy='136' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(-45 134 136)'/%3E%3C!-- tiny dots --%3E%3Ccircle cx='40' cy='110' r='2' fill='%23d4a0a0' fill-opacity='0.2'/%3E%3Ccircle cx='120' cy='50' r='2' fill='%23a8bfa0' fill-opacity='0.2'/%3E%3Ccircle cx='130' cy='120' r='1.5' fill='%23d4a0a0' fill-opacity='0.18'/%3E%3Ccircle cx='30' cy='60' r='1.5' fill='%23a8bfa0' fill-opacity='0.18'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 160px 160px;
+    }
+
+    .section-accent {
+      background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+                  url('./assets/not_only_wine.jpg') center/cover no-repeat;
+    }
+
+    /* ── SCHEDULE: rings + olive branch vines ── */
+    .section-schedule {
+     background-color: #f3f7f2;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none'%3E%3C!-- rose bloom --%3E%3Cellipse cx='80' cy='80' rx='7' ry='7' fill='%23d4a0a0' fill-opacity='0.35'/%3E%3Cellipse cx='80' cy='70' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28'/%3E%3Cellipse cx='88' cy='74' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28' transform='rotate(45 88 74)'/%3E%3Cellipse cx='72' cy='74' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28' transform='rotate(-45 72 74)'/%3E%3Cellipse cx='80' cy='90' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(180 80 90)'/%3E%3Cellipse cx='70' cy='86' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(135 70 86)'/%3E%3Cellipse cx='90' cy='86' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(-135 90 86)'/%3E%3C!-- leaves --%3E%3Cellipse cx='62' cy='94' rx='4' ry='9' fill='%23a8bfa0' fill-opacity='0.3' transform='rotate(-30 62 94)'/%3E%3Cellipse cx='98' cy='94' rx='4' ry='9' fill='%23a8bfa0' fill-opacity='0.3' transform='rotate(30 98 94)'/%3E%3C!-- small corner rose top-left --%3E%3Cellipse cx='20' cy='20' rx='5' ry='5' fill='%23e8c4c4' fill-opacity='0.3'/%3E%3Cellipse cx='20' cy='13' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25'/%3E%3Cellipse cx='26' cy='16' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(45 26 16)'/%3E%3Cellipse cx='14' cy='16' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(-45 14 16)'/%3E%3C!-- small corner rose bottom-right --%3E%3Cellipse cx='140' cy='140' rx='5' ry='5' fill='%23e8c4c4' fill-opacity='0.3'/%3E%3Cellipse cx='140' cy='133' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25'/%3E%3Cellipse cx='146' cy='136' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(45 146 136)'/%3E%3Cellipse cx='134' cy='136' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(-45 134 136)'/%3E%3C!-- tiny dots --%3E%3Ccircle cx='40' cy='110' r='2' fill='%23d4a0a0' fill-opacity='0.2'/%3E%3Ccircle cx='120' cy='50' r='2' fill='%23a8bfa0' fill-opacity='0.2'/%3E%3Ccircle cx='130' cy='120' r='1.5' fill='%23d4a0a0' fill-opacity='0.18'/%3E%3Ccircle cx='30' cy='60' r='1.5' fill='%23a8bfa0' fill-opacity='0.18'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 160px 160px;
+    }
+
+    /* ── WITH LOVE: hearts + scattered petals ── */
+    .section-love {
+    background-color: #f3f7f2;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none'%3E%3C!-- rose bloom --%3E%3Cellipse cx='80' cy='80' rx='7' ry='7' fill='%23d4a0a0' fill-opacity='0.35'/%3E%3Cellipse cx='80' cy='70' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28'/%3E%3Cellipse cx='88' cy='74' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28' transform='rotate(45 88 74)'/%3E%3Cellipse cx='72' cy='74' rx='5' ry='8' fill='%23e8b8b8' fill-opacity='0.28' transform='rotate(-45 72 74)'/%3E%3Cellipse cx='80' cy='90' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(180 80 90)'/%3E%3Cellipse cx='70' cy='86' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(135 70 86)'/%3E%3Cellipse cx='90' cy='86' rx='5' ry='8' fill='%23e0b0b0' fill-opacity='0.25' transform='rotate(-135 90 86)'/%3E%3C!-- leaves --%3E%3Cellipse cx='62' cy='94' rx='4' ry='9' fill='%23a8bfa0' fill-opacity='0.3' transform='rotate(-30 62 94)'/%3E%3Cellipse cx='98' cy='94' rx='4' ry='9' fill='%23a8bfa0' fill-opacity='0.3' transform='rotate(30 98 94)'/%3E%3C!-- small corner rose top-left --%3E%3Cellipse cx='20' cy='20' rx='5' ry='5' fill='%23e8c4c4' fill-opacity='0.3'/%3E%3Cellipse cx='20' cy='13' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25'/%3E%3Cellipse cx='26' cy='16' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(45 26 16)'/%3E%3Cellipse cx='14' cy='16' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(-45 14 16)'/%3E%3C!-- small corner rose bottom-right --%3E%3Cellipse cx='140' cy='140' rx='5' ry='5' fill='%23e8c4c4' fill-opacity='0.3'/%3E%3Cellipse cx='140' cy='133' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25'/%3E%3Cellipse cx='146' cy='136' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(45 146 136)'/%3E%3Cellipse cx='134' cy='136' rx='3.5' ry='6' fill='%23eecece' fill-opacity='0.25' transform='rotate(-45 134 136)'/%3E%3C!-- tiny dots --%3E%3Ccircle cx='40' cy='110' r='2' fill='%23d4a0a0' fill-opacity='0.2'/%3E%3Ccircle cx='120' cy='50' r='2' fill='%23a8bfa0' fill-opacity='0.2'/%3E%3Ccircle cx='130' cy='120' r='1.5' fill='%23d4a0a0' fill-opacity='0.18'/%3E%3Ccircle cx='30' cy='60' r='1.5' fill='%23a8bfa0' fill-opacity='0.18'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 160px 160px;
+    }
+
+    /* ── Scroll fade-in animation ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 2s ease-out, transform 2s ease-out;
+      will-change: opacity, transform;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .key {
+      font-weight: 900
+    }
+     
+    .value {
+      font-weight: 600
+    }
+
+    .timeline-item {
+
+  padding: 15px 5px;
+  border-radius: 12px;
+  font-weight: 300;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+/* 👇 SMALLER, CLEANER IMAGES */
+.timeline-item img {
+  width: 100%;
+  max-width: 180px;   /* ⬅️ key change (smaller size) */
+  height: 140px;      /* fixed height for consistency */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ✅ FIX: Schedule section visibility on mobile */
+.section-schedule {
+  height: auto;          /* override 100vh behavior */
+  min-height: 100vh;     /* still fills screen if content is small */
+  padding: 80px 20px;    /* more breathing space */
+}
+
+/* Make timeline more comfortable on small screens */
+.timeline {
+  gap: 25px; /* more spacing between items */
+}
+
+/* Slight improvement for iPhone screens */
+@media (max-width: 768px) {
+  .section-schedule {
+    padding: 100px 20px; /* extra top/bottom space for scroll comfort */
+  }
+
+  .timeline-item img {
+    max-width: 260px; /* a bit larger for visibility */
+    height: 160px;
+  }
+
+  .timeline-item {
+    font-size: 1.15rem; /* slightly tighter text for balance */
+  }
+}
   </style>
 </head>
 <body>
@@ -178,19 +297,16 @@
 
   <button class="music-btn" id="musicBtn">🔇</button>
 
-  <section class="hero">
-    <h1>Alyupik & Vlad</h1>
+  <section class="hero fade-in">
+    <div class="floating"></div>
+    <div class="floating"></div>
+    <h1>Alina & Vlad</h1>
     <p>We invite you to celebrate our wedding</p>
     <p>June 2nd, 2026</p>
+    <button onclick="scrollToSection('details')">Discover More</button>
   </section>
 
-  <!-- JOIN US -->
-  <section class="section-light">
-    <img class="eucalyptus top-left" src="https://images.unsplash.com/photo-1602526219810-8f6b1b4c5f2d?auto=format&fit=crop&w=400&q=60" />
-    <img class="eucalyptus top-right" src="https://images.unsplash.com/photo-1602526219810-8f6b1b4c5f2d?auto=format&fit=crop&w=400&q=60" />
-    <img class="eucalyptus bottom-left" src="https://images.unsplash.com/photo-1602526219810-8f6b1b4c5f2d?auto=format&fit=crop&w=400&q=60" />
-    <img class="eucalyptus bottom-right" src="https://images.unsplash.com/photo-1602526219810-8f6b1b4c5f2d?auto=format&fit=crop&w=400&q=60" />
-
+  <section id="details" class="section-light section-join fade-in">
     <div class="details">
       <h2>Join Us</h2>
       <p>Come celebrate love, laughter, and the beginning of our life together.</p>
@@ -198,68 +314,126 @@
     </div>
   </section>
 
-  <!-- DETAILS -->
-  <section class="section-accent">
+  <section class="section-accent fade-in">
     <div class="details">
       <h2>Wedding Details</h2>
-      <p><strong>Location :</strong> Not Only Wine</p>
-      <p><strong>Date :</strong> 2 June 2026</p>
-      <p><strong>Time :</strong> 16:00</p>
+      <p>Location: </span><span class="value">Not Only Wine</span></p>
+      <p>Date: </span><span class="value">the 2nd of June, 2026</span></p>
+      <p>Time: </span><span class="value">16:00</span></p>
     </div>
   </section>
 
-  <!-- SCHEDULE -->
-  <section class="section-light">
-    <img class="eucalyptus top-left" src="https://images.unsplash.com/photo-1602526219810-8f6b1b4c5f2d?auto=format&fit=crop&w=400&q=60" />
-    <img class="eucalyptus bottom-right" src="https://images.unsplash.com/photo-1602526219810-8f6b1b4c5f2d?auto=format&fit=crop&w=400&q=60" />
+<section class="section-light section-schedule fade-in">
+  <div class="details">
+    <h2>Schedule</h2>
 
-    <div class="details">
-      <h2>Schedule</h2>
-      <div class="timeline">
+    <div class="timeline">
+
+      <div class="timeline-item">
         <div>16:00 - Photos & Drinks</div>
-        <div>17:00 - Dinner</div>
-        <div>19:00 - Party & Dancing</div>
-        <div>22:00 - Fin</div>
+        <img src="./assets//cocktails.jpg" alt="Photos & Drinks">
       </div>
+
+      <div class="timeline-item">
+        <div>17:00 - Dinner</div>
+        <img src="./assets//fork_and_knife-upd.jpg" alt="Dinner">
+      </div>
+
+      <div class="timeline-item">
+        <div>19:00 - Party & Dancing</div>
+        <img src="./assets/dance.jpg" alt="Party & Dancing">
+      </div>
+
+      <div class="timeline-item">
+        <div>22:00 - Fin</div>
+        <img src="./assets/bride_and_bride.jpg" alt="End">
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- WITH LOVE -->
-  <section class="section-light">
-    <img class="eucalyptus top-right" src="https://images.unsplash.com/photo-1602526219810-8f6b1b4c5f2d?auto=format&fit=crop&w=400&q=60" />
-    <img class="eucalyptus bottom-left" src="https://images.unsplash.com/photo-1602526219810-8f6b1b4c5f2d?auto=format&fit=crop&w=400&q=60" />
-
+  <section class="section-light section-love fade-in">
     <div class="details">
       <h2>With Love</h2>
-      <p>No formal dress code — come as you feel comfortable.</p>
-      <p>Flowers, drinks, or small gifts are warmly appreciated.</p>
+      <p>There is no formal dress code — come as you feel comfortable and festive.</p>
+      <p>We will gladly welcome flowers, a bottle of your favorite drink, or any small surprise.</p>
     </div>
   </section>
 
   <!-- COUNTDOWN -->
-  <section class="section-countdown">
+  <section class="section-countdown fade-in">
     <div class="details">
       <div class="countdown-title">Counting the Days</div>
-      <div class="countdown" id="countdown"></div>
+      <div class="countdown" id="countdown">Loading...</div>
     </div>
   </section>
 
   <script>
-    const weddingDate = new Date('2026-06-02T16:00:00');
-    const el = document.getElementById('countdown');
 
-    function update() {
-      const d = weddingDate - new Date();
-      const days = Math.floor(d / 86400000);
-      const h = Math.floor(d % 86400000 / 3600000);
-      const m = Math.floor(d % 3600000 / 60000);
-      const s = Math.floor(d % 60000 / 1000);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('RUNNNNNNNNNNN');
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
 
-      el.innerHTML = `${days}d · ${h}h · ${m}m · ${s}s`;
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
-    setInterval(update, 1000);
-    update();
+    const music = document.getElementById('bgMusic');
+    const btn = document.getElementById('musicBtn');
+    let isPlaying = false;
+
+    btn.addEventListener('click', async () => {
+      if (!isPlaying) {
+        await music.play();
+        btn.textContent = '🔊';
+        isPlaying = true;
+      } else {
+        music.pause();
+        btn.textContent = '🔇';
+        isPlaying = false;
+      }
+    });
+
+    const countdownEl = document.getElementById('countdown');
+    const weddingDate = new Date('2026-06-02T16:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        countdownEl.innerHTML = "💍 Today is the day";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.innerHTML = `
+        <span>${days}d</span> · 
+        <span>${hours}h</span> · 
+        <span>${minutes}m</span> · 
+        <span>${seconds}s</span>
+      `;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 
 </body>
